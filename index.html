@@ -13,7 +13,12 @@
             <div class="logo">
                 <h1>HealthCare For All</h1>
             </div>
-            <ul class="nav-links">
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#programs">Our Programs</a></li>
                 <li><a href="#impact">Our Impact</a></li>
@@ -249,5 +254,21 @@
             </div>
         </div>
     </footer>
+    <script>
+    // Hamburger menu toggle for mobile nav
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active');
+    });
+    // Optional: close menu when a link is clicked (for better UX)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+        });
+    });
+    </script>
 </body>
 </html>
